@@ -1,0 +1,32 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+    <Dialog id="dlgAddUsuario" title="Crear Usuario" type="Message" contentWidth="40%">
+        <content>
+        <f:SimpleForm editable="true" layout="ResponsiveGridLayout" singleContainerFullSize="true" labelSpanXL="6" labelSpanL="6" labelSpanM="6">
+                <f:content>
+                    <Label text="Nombre" required="true" />
+                    <Input id="ipNombreIn" />
+                    <Label text="RUT" required="true" />
+                    <Input id="ipRUTIn"/>
+                    <Label text="Correo" required="true" />
+                    <Input id="ipCorreoIn" />
+                    <Label text="Teléfono" required="true" />
+                    <Input id="ipTelefonoIn" />
+                    <Label text="Rol Maestro" required="true" />
+                    <Switch id="swRolMaestroIn" customTextOn="SI" customTextOff="NO" />
+                    <Label text="Rol Administrador" required="true" />
+                    <Switch id="swRolAdministradorIn" customTextOn="SI" customTextOff="NO" />
+                    <Label text="Rol Monitor" required="true" />
+                    <Switch id="swRolMonitorIn" customTextOn="SI" customTextOff="NO" />
+                    <Label text="Rol Contabilizador" required="true" />
+                    <Switch id="swRolContabilizadorIn" customTextOn="SI" customTextOff="NO" />
+                    </f:content>
+            </f:SimpleForm>
+        </content>
+        <beginButton>
+            <Button text="Crear" type="Emphasized" press="registrarUsuario" />
+        </beginButton>
+        <endButton>
+            <Button text="Cancelar" press="closedlgAddUsuario" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

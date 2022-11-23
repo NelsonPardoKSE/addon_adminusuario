@@ -1,0 +1,34 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+    <Dialog id="dlgEditUsuario" title="Editar Usuario" type="Message" contentWidth="40%">
+        <content>
+            <f:SimpleForm editable="true" layout="ResponsiveGridLayout" singleContainerFullSize="true" labelSpanXL="6" labelSpanL="6" labelSpanM="6">
+                <f:content>
+                    <Label text="Nombre" required="true" />
+                    <Input id="ipNombreOut" value="{oModelDetalle>/NOMBRE}" />
+                    <Label text="RUT" required="true" />
+                    <Input id="ipRUTOut" value="{oModelDetalle>/RUT}" />
+                    <Label text="Correo" required="true" />
+                    <Input id="ipCorreoOut" value="{oModelDetalle>/CORREO}" />
+                    <Label text="Teléfono" required="true" />
+                    <Input id="ipTelefonoOut" value="{oModelDetalle>/TELEFONO}" />
+                    <Label text="Estado IAS" />
+                    <Input id="ipEstadoOut" editable="false" value="{oModelDetalle>/EstadoIdentity}" />
+                    <Label text="Rol Maestro" required="true" />
+                    <Switch id="swRolMaestroOut" state="{path:'oModelDetalle>/ROLMAESTRO',formatter:'.formatBooleanText'}" customTextOn="SI" customTextOff="NO" />
+                    <Label text="Rol Administrador" required="true" />
+                    <Switch id="swRolAdministradorOut" state="{path:'oModelDetalle>/ROLADMIN',formatter:'.formatBooleanText'}" customTextOn="SI" customTextOff="NO" />
+                    <Label text="Rol Monitor" required="true" />
+                    <Switch id="swRolMonitorOut" state="{path:'oModelDetalle>/ROLMONITOR',formatter:'.formatBooleanText'}" customTextOn="SI" customTextOff="NO" />
+                    <Label text="Rol Contabilizador" required="true" />
+                    <Switch id="swRolContabilizadorOut" state="{path:'oModelDetalle>/ROLCONTABILIZADOR',formatter:'.formatBooleanText'}" customTextOn="SI" customTextOff="NO" />
+                </f:content>
+            </f:SimpleForm>
+        </content>
+        <beginButton>
+            <Button text="Guardar" type="Emphasized" press="editarUsuario" />
+        </beginButton>
+        <endButton>
+            <Button text="Cerrar" press="closedlgEditUsuario" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

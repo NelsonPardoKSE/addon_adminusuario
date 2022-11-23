@@ -1,0 +1,75 @@
+
+<mvc:View controllerName="com.addonadminusuario.controller.addon_adminusuario" height="100%" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout" xmlns="sap.m" xmlns:f="sap.f" xmlns:fb="sap.ui.comp.filterbar" xmlns:m="sap.m">
+    <f:DynamicPage id="dynamicPageId" showFooter="true" toggleHeaderOnTitleClick="true" headerExpanded="true">
+        <!-- DynamicPage Title -->
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <Title text="Administración de Usuarios" />
+                </f:heading>
+            </f:DynamicPageTitle>
+        </f:title>
+        <!-- DynamicPage Header -->
+        <f:header>
+            <f:DynamicPageHeader pinnable="false">
+                <f:content>
+                    <fb:FilterBar reset="limpiarFiltrosBusqueda" search="onSearch" showRestoreOnFB="true" showFilterConfiguration="false" useToolbar="false">
+                        <fb:filterItems>
+                            <fb:FilterItem name="S" label="Nombre">
+                                <fb:control>
+                                    <Input id="ipNombre" maxLength="100" />
+                                </fb:control>
+                            </fb:FilterItem>
+                        </fb:filterItems>
+                    </fb:FilterBar>
+                </f:content>
+            </f:DynamicPageHeader>
+        </f:header>
+        <!-- DynamicPage Content -->
+        <f:content>
+            <NavContainer id="navCon" width="100%">
+                <Page id="p1" showHeader="false">
+                    <Table id="tablaUsuarios" inset="false" items="{oModel>/}" mode="MultiSelect" updateFinished="finishLoading" growing="true" growingThreshold="100" sticky="HeaderToolbar,ColumnHeaders">
+                        <headerToolbar>
+                            <Toolbar>
+                                <Title text="Usuarios ({oModeloPropiedad>/countTable})" level="H2" />
+                                <Button icon="sap-icon://excel-attachment" press="onXlsx"/>
+                                <ToolbarSpacer />
+                                <Button icon="sap-icon://delete" type="Reject" press="BorrarSelecciones" />
+                                <Button icon="sap-icon://add" type="Emphasized" press="openDlgAddUsuario" />
+                            </Toolbar>
+                        </headerToolbar>
+                        <columns>
+                            <Column id="colNombre" minScreenWidth="Tablet" demandPopin="true">
+                                <Text text="Nombre" />
+                            </Column>
+                            <Column id="colUSer" minScreenWidth="Tablet" demandPopin="true">
+                                <Text text="User Provider" />
+                            </Column>
+                            <Column id="colRUT" minScreenWidth="Tablet" demandPopin="true">
+                                <Text text="RUT" />
+                            </Column>
+                            <Column id="colCorreo" minScreenWidth="Tablet" demandPopin="true">
+                                <Text text="Correo" />
+                            </Column>
+                            <Column id="colTelefono" minScreenWidth="Tablet" demandPopin="true">
+                                <Text text="Teléfono" />
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem vAlign="Middle" type="Detail" detailPress="openDlgEdit">
+                                <cells>
+                                    <ObjectIdentifier text="{oModel>NOMBRE}" />
+                                    <ObjectIdentifier text="{oModel>USER}" />
+                                    <ObjectIdentifier text="{oModel>RUT}" />
+                                    <ObjectIdentifier text="{oModel>CORREO}" />
+                                    <ObjectIdentifier text="{oModel>TELEFONO}" />
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </Page>
+            </NavContainer>
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>
